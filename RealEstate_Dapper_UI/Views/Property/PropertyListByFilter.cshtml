@@ -1,0 +1,52 @@
+﻿@using RealEstate_Dapper_UI.Dtos.ProductDtos
+@model IEnumerable<ResultProductDto>
+
+@{
+    ViewData["Title"] = "PropertyListByFilter";
+    Layout = "~/Views/Shared/_UILayout2.cshtml";
+}
+
+
+<div class="locations py-2">
+    <h1 class="text-center" style="font-weight:bold">Tüm İlanlar (@Model.Count())</h1>
+
+    <div class="container py-lg-5 py-md-4 py-2">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 listing-img mb-3">
+                    <a href="/Property/SingleProperty/@item.productId">
+                        <div class="box16">
+                            <div class="rentext-listing-category"><span>@item.type</span></div>
+                            <img class="" src="@item.coverImg" alt="" style="height: 250px;">
+                            <div class="box-content">
+                                <h3 class="title">₺ @item.price.ToString("N0")</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="listing-details blog-details align-self">
+                        <h4 class="user_title agent">
+                            <a href="#url">@item.productTitle</a>
+                        </h4>
+                        <p class="user_position">@item.city / @item.district</p>
+                        <div class="author align-items-center mt-4">
+                            <a href="#img" class="comment-img">
+                                <img src="@item.imageUrl" alt="" class="img-fluid">
+                            </a>
+                            <ul class="blog-meta">
+                                <li>
+                                    <a href="#url">@item.name </a>
+                                </li>
+                                <li class="meta-item blog-lesson">
+                                    <span class="meta-value">Satış Danışmanı</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+

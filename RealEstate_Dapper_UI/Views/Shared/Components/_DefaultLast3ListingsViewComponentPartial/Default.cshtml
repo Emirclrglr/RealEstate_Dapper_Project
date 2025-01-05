@@ -1,0 +1,46 @@
+﻿@using RealEstate_Dapper_UI.Dtos.ProductDtos
+@model IEnumerable<ResultProductDto>
+
+<div class="w3l-news" id="news">
+    <section id="grids5-block" class="py-5">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h3 class="title-big text-center">Son Listelenen İlanlar</h3>
+            <div class="row mt-lg-5 mt-4 pt-3">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 mt-md-0 mt-sm-4">
+                        <div class="grids5-info">
+                            <span class="posted-date">
+                                <a href="#blog-single">
+                                    <span class="small">@(((DateTime)item.ListingDate).Year)</span>
+                                    <span class="big">@(((DateTime)item.ListingDate).Day)</span>
+                                    <span class="small">@(((DateTime)item.ListingDate).ToString("MMMM"))</span>
+                                </a>
+                            </span>
+                            <a href="/Property/PropertySingle/@item.productId" class="d-block zoom">
+                                <img src="@item.coverImg" alt=""
+                                     class="news-image" style="height: 280px"/>
+                            </a>
+                            <div class="blog-info">
+                                <div class="d-flex justify-content-between">
+                                    <span>@item.type</span>
+                                    <a href="/Property/PropertySingle/@item.productId" class="category" style="font-weight: bold; font-size: 20px;">@item.price.ToString("N0") ₺</a>
+                                </div>
+                                <h4><a href="#blog-single">@item.productTitle</a></h4>
+                                @if (item.description.Length > 90)
+                                {
+                                    <p>@item.description.Substring(0, 90).Trim()...</p>
+                                }
+                                else
+                                {
+                                    <p>@item.description</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </section>
+</div>

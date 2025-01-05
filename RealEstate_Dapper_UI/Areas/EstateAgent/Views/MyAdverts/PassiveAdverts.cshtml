@@ -1,0 +1,66 @@
+﻿@using RealEstate_Dapper_UI.Dtos.ProductDtos
+@model IEnumerable<ResultProductDto>
+@{
+    ViewData["Title"] = "PassiveAdverts";
+    Layout = "~/Areas/EstateAgent/Views/LayoutEstateAgent/Index.cshtml";
+    int count = 0;
+}
+
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h3 class="mb-4 text-primary">Geçmiş İlanlarım</h3>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 50px;" class="text-center">#</th>
+                        <th scope="col" style="width: 50px;" class="text-center">Görsel</th>
+                        <th scope="col" class="text-center">İlan Başlığı</th>
+                        <th scope="col" class="text-center">Şehir</th>
+                        <th scope="col" class="text-center">İlçe</th>
+                        <th scope="col" class="text-center">Kategori</th>
+                        <th scope="col" class="text-center">Fiyat</th>
+                        <th scope="col" class="text-center">Tür</th>
+                        <th scope="col" class="text-center">Düzenle</th>
+                        <th scope="col" class="text-center">Sil</th>
+                        <th scope="col" class="text-center">Aktif Yap</th>
+                        <th scope="col" class="text-center">Sitede Gör</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row" style="width: 50px;" class="text-center align-middle">@count</th>
+                            <td><img class="rounded-3" src="@item.coverImg" width="250" height="150" /></td>
+                            <td class="text-center align-middle">@item.productTitle</td>
+                            <td class="text-center align-middle">@item.city</td>
+                            <td class="text-center align-middle">@item.district</td>
+                            <td class="text-center align-middle">@item.categoryName</td>
+                            <td class="text-center align-middle">@item.price</td>
+                            @if (item.type == "Satılık")
+                            {
+                                <td class="text-center align-middle"><span class="bg-success rounded-pill p-2 text-white">Satılık</span></td>
+                            }
+                            else
+                            {
+                                <td class="text-center align-middle"><span class="bg-warning rounded-pill p-2 text-white">Kiralık</span></td>
+
+                            }
+                            <td class="text-center align-middle" style="width:50px;"><a href="#" class="btn btn-primary rounded-pill"><i class="fas fa-edit"></i></a></td>
+                            <td class="text-center align-middle" style="width:100px;"><a href="#" class="btn btn-danger rounded-pill"><i class="fas fa-times"></i></a></td>
+                            <td class="text-center align-middle" style="width:100px;"><a href="#" class="btn btn-success rounded-pill"><i class="fas fa-check"></i></a></td>
+                            <td class="text-center align-middle" style="width:200px;"><a href="#" class="btn btn-info rounded-pill text-white">Sitede Gör</a></td>
+
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

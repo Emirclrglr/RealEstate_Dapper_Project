@@ -1,0 +1,23 @@
+﻿@model RealEstate_Dapper_UI.Dtos.ServiceDtos.UpdateServiceDto
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<form method="post">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Hizmeti Düzenle</h6>
+        @Html.HiddenFor(x => x.id)
+        @Html.HiddenFor(x => x.serviceStatus)
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput"
+                   placeholder="Servis Adı" asp-for="serviceName">
+            <label for="floatingInput">Servis Adı</label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary rounded-pill"><i class="fa fa-plus me-2"></i>Kaydet</button>
+        </div>
+    </div>
+</form>
+
+

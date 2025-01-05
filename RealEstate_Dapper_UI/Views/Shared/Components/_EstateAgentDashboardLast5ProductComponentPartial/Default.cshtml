@@ -1,0 +1,46 @@
+﻿@using RealEstate_Dapper_UI.Dtos.ProductDtos
+@model IEnumerable<ResultProductDto>
+
+@{
+    int count = 0;
+}
+
+<div class="container-fluid pt-4 px-4 mb-5">
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">En Son Listelenen 5 İlanım</h6>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr class="text-dark">
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col">İl</th>
+                        <th scope="col">İlçe</th>
+                        <th scope="col">Fiyat</th>
+                        <th scope="col">Tür</th>
+                        <th scope="col">İlan Tarihi</th>
+                        <th scope="col">Sitede Gör</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <td class="text-center">@count</td>
+                            <td>@item.productTitle</td>
+                            <td>@item.city</td>
+                            <td>@item.district</td>
+                            <td>@item.price ₺</td>
+                            <td>@item.type</td>
+                            <td>@(((DateTime)item.ListingDate).ToString("dd MMMM yyyy"))</td>
+                            <td><a class="btn btn-sm btn-primary" href="#">Sitede Gör</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

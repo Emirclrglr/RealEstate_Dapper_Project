@@ -1,0 +1,29 @@
+﻿@using RealEstate_Dapper_UI.Dtos.WhoWeAreDetailDtos
+@model ResultWhoWeAreDetailDto
+
+<section class="w3l-index3" id="about">
+    <div class="midd-w3 pb-5">
+        <div class="container pb-lg-5 pb-md-4 pb-2">
+            <div class="row">
+                <div class="col-lg-5 pr-lg-0">
+                    <div class="w3l-left-img">
+                    </div>
+                </div>
+                <div class="col-lg-7 pl-lg-0">
+                    <div class="w3l-right-info">
+                        <h6 class="title-small">@Model.title</h6>
+                        <h3 class="title-big">@Model.subtitle</h3>
+                        <p class="mt-4">
+                            @Model.description1
+                        </p>
+                        <p class="mt-3">
+                            @Model.description2
+                        </p>
+                        @* services *@
+                        @await Component.InvokeAsync("_DefaultWhoWeAreServicesComponentPartial")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

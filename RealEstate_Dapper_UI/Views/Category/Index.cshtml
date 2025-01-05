@@ -1,0 +1,56 @@
+﻿@using RealEstate_Dapper_UI.Dtos.CategoryDtos
+@model IEnumerable<ResultCategoryDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">KATEGORİLER</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 50px;" class="text-center">#</th>
+                        <th scope="col" class="ps-3">Kategori</th>
+                        <th scope="col" class="text-center">Durum</th>
+                        <th scope="col" class="text-center">Düzenle</th>
+                        <th scope="col" class="text-center">Sil</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row" style="width: 50px;" class="text-center pt-3">@count</th>
+                            <td class="ps-3 pt-3">@item.categoryName</td>
+                            @if (item.categoryStatus == true)
+                            {
+                                <td class="ps-3 pt-3 text-center"><span class="bg-success text-white px-3 rounded">Aktif</span></td>
+                            }
+                            else 
+                            {
+                                <td class="ps-3 pt-3 text-center"><span class="bg-danger text-white px-3 rounded">Pasif</span></td>
+                            }
+                            <td class="text-center" style="width:50px;"><a href="/Category/UpdateCategory/@item.categoryId" class="btn btn-primary rounded-pill"><i class="fas fa-edit"></i></a></td>
+                            <td class="text-center" style="width:100px;"><a href="/Category/DeleteCategory/@item.categoryId" class="btn btn-danger rounded-pill"><i class="fas fa-times"></i></a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <div>
+                <a href="/Category/CreateCategory/" class="btn btn-primary m-2 mb-0 rounded-pill d-block" style="width: auto"><i class="fa fa-plus me-2"></i>Yeni Kategori Ekle</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+ 

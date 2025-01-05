@@ -1,0 +1,38 @@
+﻿@model RealEstate_Dapper_UI.Dtos.WhoWeAreDetailDtos.UpdateWhoWeAreDetailDto
+@{
+    ViewData["Title"] = "UpdateWhoWeAreDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <div class="bg-light rounded h-100 p-4">
+        @Html.HiddenFor(x => x.id)
+        <h6 class="mb-4">Biz Kimiz Düzenle</h6>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput"
+                   placeholder="Başlık" asp-for="title">
+            <label for="floatingInput">Başlık</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput"
+                   placeholder="Alt Başlık" asp-for="subtitle">
+            <label for="floatingInput">Alt Başlık</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea type="text" class="form-control" id="floatingInput"
+                   placeholder="Açıklama 1" asp-for="description1" rows="12" style="height: 200px"></textarea>
+            <label for="floatingInput">Açıklama 1</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea type="text" class="form-control" id="floatingInput"
+                      placeholder="Açıklama 2" asp-for="description2" rows="12" style="height: 200px"></textarea>
+            <label for="floatingInput">Açıklama 2</label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary rounded-pill"><i class="fa fa-plus me-2"></i>Kaydet</button>
+        </div>
+
+    </div>
+</form>
+
+

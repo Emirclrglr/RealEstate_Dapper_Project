@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+@await Html.PartialAsync("PartialSearch.cshtml");
+
+@await Component.InvokeAsync("_DefaultProductListViewComponentPartial")
+
+@await Component.InvokeAsync("_DefaultWhoWeAreViewComponentPartial")
+
+@await Component.InvokeAsync("_DefaultBottomGridViewComponentPartial")
+
+@await Component.InvokeAsync("_DefaultProductListByCitiesViewComponentPartial")
+
+@await Component.InvokeAsync("_DefaultOurTestimonialsViewComponentPartial")
+
+@await Component.InvokeAsync("_DefaultSubFeatureViewComponentPartial")
+
+@await Component.InvokeAsync("_DefaultLast3ListingsViewComponentPartial")
+
+@await Component.InvokeAsync("_DefaultBrandViewComponentPartial")

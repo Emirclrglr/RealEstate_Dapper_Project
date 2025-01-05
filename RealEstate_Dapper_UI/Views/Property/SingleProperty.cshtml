@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = ViewBag.Title;
+    Layout = "~/Views/Shared/_UILayout2.cshtml";
+    var timeSpan = DateTime.Now - ViewBag.Date;
+    string timeAgo;
+
+    if (timeSpan.TotalMinutes < 1)
+    {
+        timeAgo = "Az önce";
+    }
+    else if (timeSpan.TotalMinutes < 60)
+    {
+        timeAgo = $"{(int)timeSpan.TotalMinutes} Dakika önce";
+    }
+    else if (timeSpan.TotalHours < 24)
+    {
+        timeAgo = $"{(int)timeSpan.TotalHours} Saat önce";
+    }
+    else if (timeSpan.TotalDays < 30)
+    {
+        timeAgo = $"{(int)timeSpan.TotalDays} Gün önce";
+    }
+    else if (timeSpan.TotalDays < 365)
+    {
+        int months = (int)(timeSpan.TotalDays / 30);
+        timeAgo = $"{months} Ay önce";
+    }
+    else
+    {
+        int years = (int)(timeSpan.TotalDays / 365);
+        timeAgo = $"{years} Yıl önce";
+    }
+}
+
+
+<section class="w3l-blog post-content">
+    <div class="container py-lg-4 py-md-3 py-2">
+        <div class="inner mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <div class="listing-category"><span>@ViewBag.Type</span></div>
+                </li>
+                <li><span class="fa fa-clock-o"></span> @timeAgo</li>
+                <li><span class="fa fa-eye"></span> 250 views</li>
+            </ul>
+        </div>
+        <div class="post-content">
+            <h2 class="title-single">@ViewBag.ProductTitle</h2>
+        </div>
+        <div class="blo-singl mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <p>@ViewBag.Address</p>
+                </li>
+                <li><span class="fa fa-bed"></span> @ViewBag.BedroomCount Yatak Odası</li>
+                <li><span class="fa fa-bath"></span> @ViewBag.BathCount Banyo</li>
+                <li><span class="fa fa-home"></span> @ViewBag.RoomCount Oda</li>
+                <li><span class="fa fa-share-square-o"></span> @ViewBag.PropertySize M<sup>2</sup></li>
+            </ul>
+            <ul class="share-post">
+                <a href="#url" class="cost-estate m-o">@ViewBag.ProductPrice ₺</a>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 w3l-news">
+                <div class="blog-single-post">
+
+                    @await Component.InvokeAsync("_PropertySliderComponentPartial", new {id = ViewBag.Id})
+
+                    <div class="single-post-content">
+                        <h3 class="post-content-title mb-3">Açıklama</h3>
+                        <p class="mb-4">
+                            @ViewBag.Description
+                        </p>
+                       
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">İlan Detayları</h3>
+                            <ul class="details-list">
+                                <li><strong>İlan Id :</strong> @ViewBag.ProductId </li>
+                                <li><strong>Metrekare :</strong> @ViewBag.PropertySize M<sup>2</sup></li>
+                                <li><strong>Oda Sayısı :</strong> @ViewBag.RoomCount </li>
+                                <li><strong>Yatak Odası :</strong> @ViewBag.BedroomCount </li>
+                                <li><strong>Banyo :</strong> @ViewBag.BathCount </li>
+                                <li><strong>Dış Cephe Materyali :</strong> Tuğla </li>
+                                <li><strong>Yapı Türü :</strong> Beton </li>
+                                <li><strong>Garaj Sayısı :</strong> @ViewBag.GarageCount </li>
+                                <li><strong>Garaj Araba Kapasitesi :</strong> 7 </li>
+                                <li><strong>Fiyat :</strong> @ViewBag.ProductPrice ₺ </li>
+                                <li><strong>Yapım Yılı :</strong> @ViewBag.BuiltYear </li>
+                                <li><strong>İlan Tarihi :</strong> @(((DateTime)ViewBag.Date).ToString("MMM yyyy")) </li>
+                            </ul>
+                        </div>
+
+                        @await Component.InvokeAsync("_PropertyAmenitiesComponentPartial", new { id = ViewBag.Id })
+
+                    </div>
+
+                    <div class="single-bg-white">
+                        <h3 class="post-content-title mb-4">Lokasyon</h3>
+                        <div class="agent-map">
+                            <iframe src="@ViewBag.Location" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="single-bg-white mb-0">
+                        <h3 class="post-content-title mb-4">Ev Tanıtım Videosu</h3>
+                        <div class="post-content">
+                            <iframe width="560" height="315" src="@ViewBag.VideoUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5">
+                <aside class="sidebar">
+
+                    <!-- Popular Post Widget-->
+                    @await Component.InvokeAsync("_PropertyContactWithAgentComponentPartial", new {id = ViewBag.Id})
+
+                    <!-- Popular Post Widget-->
+                    @await Component.InvokeAsync("_PropertyLast3ListingOfThisAgentComponentPartial", new { id = ViewBag.UserId })
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>

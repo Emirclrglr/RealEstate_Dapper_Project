@@ -1,0 +1,78 @@
+﻿@using RealEstate_Dapper_UI.Dtos.ProductDtos
+@model IEnumerable<ResultProductDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h3 class="mb-4 text-primary">İlan Listesi</h3>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 50px;" class="text-center">#</th>
+                        <th scope="col" style="width: 50px;" class="text-center">Görsel</th>
+                        <th scope="col" class="text-center">İlan Başlığı</th>
+                        <th scope="col" class="text-center">Şehir</th>
+                        <th scope="col" class="text-center">İlçe</th>
+                        <th scope="col" class="text-center">Kategori</th>
+                        <th scope="col" class="text-center">Fiyat</th>
+                        <th scope="col" class="text-center">Tür</th>
+                        <th scope="col" class="text-center">Düzenle</th>
+                        <th scope="col" class="text-center">Sil</th>
+                        <th scope="col" class="text-center">Günün Fırsatı</th>
+                        <th scope="col" class="text-center">Sitede Gör</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row" style="width: 50px;" class="text-center align-middle">@count</th>
+                            <td><img class="rounded-3" src="@item.coverImg" width="250" height="150" /></td>
+                            <td class="text-center align-middle">@item.productTitle</td>
+                            <td class="text-center align-middle">@item.city</td>
+                            <td class="text-center align-middle">@item.district</td>
+                            <td class="text-center align-middle">@item.categoryName</td>
+                            <td class="text-center align-middle">@item.price</td>
+                            @if (item.type == "Satılık")
+                            {
+                                <td class="text-center align-middle"><span class="bg-success rounded-pill p-2 text-white">Satılık</span></td>
+                            }
+                            else
+                            {
+                                <td class="text-center align-middle"><span class="bg-warning rounded-pill p-2 text-white">Kiralık</span></td>
+
+                            }
+                            <td class="text-center align-middle" style="width:50px;"><a href="/Product/UpdateProduct/@item.productId" class="btn btn-primary rounded-pill"><i class="fas fa-edit"></i></a></td>
+                            <td class="text-center align-middle" style="width:100px;"><a href="/Product/DeleteProduct/@item.productId" class="btn btn-danger rounded-pill"><i class="fas fa-times"></i></a></td>
+                            @if (item.isDealOfTheDay == true)
+                            {
+                                <td class="text-center align-middle" style="width:100px;"><a href="/Product/SetDealOfTheDayFalse/@item.productId" class="btn btn-square btn-outline-warning m-2"><i class="fas fa-star"></i></a></td>
+                            }
+                            else
+                            {
+                                <td class="text-center align-middle" style="width:100px;"><a href="/Product/SetDealOfTheDayTrue/@item.productId" class="btn btn-square btn-outline-secondary m-2"><i class="fas fa-star"></i></a></td>
+
+                            }
+                            <td class="text-center align-middle" style="width:200px;"><a href="/Property/SingleProperty/@item.productId" class="btn btn-info rounded-pill text-white">Sitede Gör</a></td>
+
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <div>
+                <a href="/Product/CreateProduct/" class="btn btn-primary m-2 mb-0 rounded-pill d-block" style="width: auto"><i class="fa fa-plus me-2"></i>Yeni İlan Oluştur</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

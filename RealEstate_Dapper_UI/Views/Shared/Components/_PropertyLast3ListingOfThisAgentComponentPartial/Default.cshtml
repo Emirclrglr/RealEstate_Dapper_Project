@@ -1,0 +1,30 @@
+﻿@using RealEstate_Dapper_UI.Dtos.ProductDtos
+@model IEnumerable<ResultProductDto>
+
+<div class="sidebar-widget popular-posts">
+    <div class="sidebar-title">
+        <h4>Bu Emlakçının Son İlanları</h4>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <article class="post">
+            <figure class="">
+                <img src="@item.coverImg" class="radius-image" style="height: 120px; width: 120px" alt="">
+            </figure>
+            <div class="text">
+                <a href="#">
+                    @item.productTitle
+                </a>
+                <div class="post-info justify-content-between d-flex" style=" width: 130px">
+                    @(((DateTime)item.ListingDate).ToString("MMM dd, yyyy"))
+                    <span class="">@item.type</span>
+                </div>
+                <span class="text-warning align-self-end" style="font-weight: bold; font-size: 16px">@item.price.ToString("N0") ₺</span>
+            </div>
+        </article>
+
+    }
+
+
+</div>

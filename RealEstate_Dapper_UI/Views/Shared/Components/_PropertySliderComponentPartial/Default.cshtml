@@ -1,0 +1,17 @@
+﻿@using RealEstate_Dapper_UI.Dtos.ProductImagesDtos
+@model IEnumerable<GetProductImageByProductIdDto>
+
+<div class="single-post-image mb-5">
+    <div class="owl-blog owl-carousel owl-theme">
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <div class="card">
+                    <img src="@item.ProductImageUrl" class="radius-image" style="height: 500px;" alt="image">
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+

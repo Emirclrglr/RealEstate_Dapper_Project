@@ -1,0 +1,58 @@
+﻿@using RealEstate_Dapper_UI.Dtos.EmployeeDtos
+@model IEnumerable<ResultEmployeeDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Personel Listesi</h6>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 50px;" class="text-center">#</th>
+                        <th scope="col" class="ps-3">Ad Soyad</th>
+                        <th scope="col" class="text-center">Unvan</th>
+                        <th scope="col" class="text-center">Mail</th>
+                        <th scope="col" class="text-center">Telefon</th>
+                        <th scope="col" class="text-center">Durum</th>
+                        <th scope="col" class="text-center">Düzenle</th>
+                        <th scope="col" class="text-center">Sil</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row" style="width: 50px;" class="text-center align-middle">@count</th>
+                            <td class="ps-3 align-middle">@item.name</td>
+                            <td class="text-center align-middle">@item.title</td>
+                            <td class="text-center align-middle">@item.mail</td>
+                            <td class="text-center align-middle">@item.phoneNumber</td>
+                            @if (item.status == true)
+                            {
+                                <td class="ps-3 pt-3 text-center"><span class="bg-success text-white px-3 rounded">Aktif</span></td>
+                            }
+                            else
+                            {
+                                <td class="ps-3 pt-3 text-center"><span class="bg-danger text-white px-3 rounded">Pasif</span></td>
+                            }
+                            <td class="text-center" style="width:50px;"><a href="/Employee/UpdateEmployee/@item.employeeId" class="btn btn-primary rounded-pill"><i class="fas fa-edit"></i></a></td>
+                            <td class="text-center" style="width:100px;"><a href="/Employee/DeleteEmployee/@item.employeeId" class="btn btn-danger rounded-pill"><i class="fas fa-times"></i></a></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+            <div>
+                <a href="/Employee/CreateEmployee/" class="btn btn-primary m-2 mb-0 rounded-pill d-block" style="width: auto"><i class="fa fa-plus me-2"></i>Yeni Personel Ekle</a>
+            </div>
+
+        </div>
+    </div>
+</div>

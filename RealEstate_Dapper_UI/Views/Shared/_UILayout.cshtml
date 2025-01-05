@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+    @* Head *@
+@await Component.InvokeAsync("_HeadViewComponentPartial")
+
+  <body>
+
+<!--header-->
+    @await Component.InvokeAsync("_NavbarViewComponentPartial")
+<!--/header-->
+
+<!-- contacts -->
+    @RenderBody()
+<!-- //contacts -->
+ <!-- footers 20 -->
+    @await Component.InvokeAsync("_FooterViewComponentPartial")
+
+    @await Component.InvokeAsync("_ScriptViewComponentPartial")
+
+
+</body>
+
+</html>

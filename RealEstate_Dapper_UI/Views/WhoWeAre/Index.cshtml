@@ -1,0 +1,77 @@
+﻿@using RealEstate_Dapper_UI.Dtos.WhoWeAreDetailDtos
+@model IEnumerable<ResultWhoWeAreDetailDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="col-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h3 class="mb-4 text-primary">Biz Kimiz?</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 50px;" class="text-center">#</th>
+                        <th scope="col" class="ps-3">Başlık</th>
+                        <th scope="col" class="ps-3">Alt Başlık</th>
+                        <th scope="col" class="ps-3">Açıklama 1</th>
+                        <th scope="col" class="ps-3">Açıklama 2</th>
+                        <th scope="col" class="text-center">Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row" style="width: 50px;" class="text-center align-middle">@count</th>
+                            @if (item.title.Length >= 30)
+                            {
+                                <td class="align-middle" style="width: 120px">@item.title.Substring(0, 30)</td>
+                            }
+                            else
+                            {
+                                <td class="align-middle" style="width: 220px">@item.title</td>
+
+                            }
+
+                            @if (item.subtitle.Length >= 30)
+                            {
+                                <td class="align-middle" style="width: 550px">@item.subtitle.Substring(0, 30)...</td>
+                            }
+                            else
+                            {
+                                <td class="align-middle" style="width: 550px">@item.subtitle</td>
+                            }
+
+
+                            @if (item.description1.Length >= 30)
+                            {
+                                <td class="align-middle" style="width: 550px">@item.description1.Substring(0, 30)...</td>
+                            }
+                            else
+                            {
+                                <td class="align-middle" style="width: 550px">@item.description1</td>
+                            }
+
+                            @if (item.description2.Length >= 30)
+                            {
+                                <td class="align-middle" style="width: 550px">@item.description2.Substring(0, 30)...</td>
+                            }
+                            else
+                            {
+                                <td class="align-middle" style="width: 550px">@item.description2</td>
+                            }
+                            <td class="text-center align-middle" style="width:150px;"><a href="/WhoWeAre/UpdateWhoWeAreDetail/@item.id" class="btn btn-primary rounded-pill"><i class="fas fa-edit"></i></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

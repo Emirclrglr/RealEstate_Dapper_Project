@@ -1,0 +1,43 @@
+﻿@model RealEstate_Dapper_UI.Dtos.EmployeeDtos.UpdateEmployeeDto
+@{
+    ViewData["Title"] = "UpdateEmployee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <div class="bg-light rounded h-100 p-4">
+        @Html.HiddenFor(x => x.status)
+        @Html.HiddenFor(x => x.employeeId)
+        <h6 class="mb-4">Personel Düzenle</h6>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput"
+                   placeholder="Ad Soyad" asp-for="name">
+            <label for="floatingInput">Ad Soyad</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput"
+                   placeholder="Unvan" asp-for="title">
+            <label for="floatingInput">Unvan</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput"
+                   placeholder="Mail Adresi" asp-for="mail">
+            <label for="floatingInput">Mail Adresi</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput"
+                   placeholder="Telefon Numarası" asp-for="phoneNumber">
+            <label for="floatingInput">Telefon Numarası</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput"
+                   placeholder="Görsel" asp-for="imageUrl">
+            <label for="floatingInput">Görsel</label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary rounded-pill"><i class="fa fa-plus me-2"></i>Kaydet</button>
+        </div>
+
+    </div>
+</form>
+

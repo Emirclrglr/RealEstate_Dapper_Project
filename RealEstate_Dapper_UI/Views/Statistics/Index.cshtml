@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <h3 class="text-primary">İstatistikler</h3>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-th fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Aktif Kategori</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.ActiveCategoryCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-users fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Aktif Personel</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.ActiveEmployeeCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-home fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Daire Sayısı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.ApartmentCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-building fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Ortalama Kiralık Ev Fiyatı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.AverageProductPriceByRent ₺</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-building fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Ortalama Satılık Ev Fiyatı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.AverageProductPriceBySale ₺</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-bed fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Ortalama Oda Sayısı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.AverageRoomCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-th-large fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Kategori Sayısı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.CategoryCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-home fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">En Çok Listelenen İlan Kategorisi</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.CategoryNameByMaxProductCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-globe fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">En Çok İlan Bulunan Şehir</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.CityNameByMaxProductCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-globe fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Şehir Sayısı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.DifferentCityCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-handshake fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">En Çok İlanı Bulunan Personel</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.EmployeeNameByMaxProductCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-home fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">En Yeni Bina Yılı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.NewestBuildingYear</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-home fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">En Eski Bina Yılı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.OldestBuildingYear</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-window-close fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Pasif Kategori</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.PassiveCategoryCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-th-list fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">Son Listelenen İlan Fiyatı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.PriceOfLatestListing ₺</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                <i class="fa fa-home fa-3x text-primary"></i>
+                <div class="ms-3">
+                    <p class="mb-2">İlan Sayısı</p>
+                    <h3 class="mb-0 text-end text-primary">@ViewBag.ProductCount</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

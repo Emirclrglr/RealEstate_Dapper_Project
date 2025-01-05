@@ -1,0 +1,54 @@
+﻿@using RealEstate_Dapper_UI.Dtos.CategoryDtos
+@model IEnumerable<ResultCategoryDto>
+
+
+<section class="w3l-cover-3">
+    <div class="cover top-bottom">
+        <div class="container">
+            <div class="middle-section text-center">
+                <div class="section-width">
+                    <p>Evde Olmak Gibisi Yok</p>
+                    <h2>Hayalinizdeki Eve Sahip Olun!</h2>
+                    <div class="most-searches">
+                        <h4>Sık Arananlar</h4>
+                        <ul>
+                            <li><a href="#link">Villa</a></li>
+                            <li><a href="#link">Daire</a></li>
+                            <li><a href="#link">Yazlık</a></li>
+                        </ul>
+                    </div>
+                    <form asp-action="PartialSearch" asp-controller="Default" class="w3l-cover-3-gd" method="post">
+                        <input type="search" name="keyword" placeholder="Anahtar Kelimeyi Girin" required>
+                        <span class="input-group-btn">
+                            <select class="btn btn-default" name="categoryId" required>
+                                <option selected="">Gayrimenkul Türü</option>
+                                @foreach (var item in Model)
+                                {
+                                  <option value="@item.categoryId">@item.categoryName</option>  
+                                }
+                            </select>
+                        </span>
+                        <span class="input-group-btn">
+                            <select class="btn btn-default" name="city" required>
+                                <option selected="">Şehir Seçiniz</option>
+                                <option>İstanbul</option>
+                                <option>Balıkesir</option>
+                                <option>İzmir</option>
+                                <option>Paris</option>
+                                <option>Bursa</option>
+                                <option>Adana</option>
+                                <option>Trabzon</option>
+                                <option>Ankara</option>
+                            </select>
+                        </span>
+                        <button type="submit" class="btn-primary">Ara</button>
+                    </form>
+                </div>
+                <section id="bottom" class="demo">
+                    <a href="#bottom"><span></span>Kaydır</a>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+

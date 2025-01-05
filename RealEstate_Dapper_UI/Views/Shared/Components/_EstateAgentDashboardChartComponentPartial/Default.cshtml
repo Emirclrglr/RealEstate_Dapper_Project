@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ResultEstateAgentDashboardChartDto>
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light text-center rounded p-4">
+                <canvas id="myChart1"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<canvas id="myChart" style="width:100%;max-width:400px; height: 5px"></canvas>
+
+<script>
+    // Model'den gelen verileri Razor ile JavaScript'e aktar
+    const xValues = @Html.Raw(Json.Serialize(Model.Select(x => x.City)));
+    const yValues = @Html.Raw(Json.Serialize(Model.Select(x => x.CityCount)));
+
+    const barColors = ["#66a3ff", "#80b3ff", "#99c2ff", "#b3d1ff", "#cce0ff"];
+
+    new Chart("myChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: "Şehir - İlan İstatistiği"
+            }
+        }
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<canvas id="myChart1" style="width:100%;max-width:400px; height: 5px"></canvas>
+
+<script>
+    // Model'den gelen verileri Razor ile JavaScript'e aktar
+    const xValues1 = @Html.Raw(Json.Serialize(Model.Select(x => x.City)));
+    const yValues1 = @Html.Raw(Json.Serialize(Model.Select(x => x.CityCount)));
+
+    const barColors1 = ["#66a3ff", "#80b3ff", "#99c2ff", "#b3d1ff", "#cce0ff"];
+
+    new Chart("myChart1", {
+        type: "bar",
+        data: {
+            labels: xValues1,
+            datasets: [{
+                backgroundColor: barColors1,
+                data: yValues1
+            }]
+        },
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: "Şehir - İlan İstatistiği"
+            }
+        }
+    });
+</script>

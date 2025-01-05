@@ -1,0 +1,21 @@
+﻿@model RealEstate_Dapper_UI.Dtos.AppUserDtos.GetAppUserByProductIdDto
+
+<div class="sidebar-widget popular-posts">
+    <div class="sidebar-title">
+        <h4>Emlakçıyla İletişime Geçin</h4>
+    </div>
+
+    <article class="post">
+        <figure class="">
+            <img src="@Model.ImageUrl" class="rounded" style="height: 90px; width: 100px" alt="">
+        </figure>
+        <div class="text mb-1">
+            <a href="#blog-single">
+                @Model.Name
+            </a>
+            <div class="post-info">@Model.PhoneNumber</div>
+            <div class="post-info">@Model.Email</div>
+        </div>
+    </article>
+    <button type="submit" class="btn btn-primary btn-style w-100">Detaylar</button>
+</div>
