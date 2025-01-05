@@ -3,11 +3,11 @@ Bu proje, Murat Yücedağ Hocamızın Youtube'daki RealEstate eğitim projesidir
 
 .NET Core teknolojisi kullanılarak geliştirilmiş ve veritabanı işlemlerinde Dapper kullanılan bir emlak sitesi uygulamasıdır. Veriler, RESTful API üzerinden alınarak kullanıcı arayüzüne sunulmaktadır. Projenin UI (Kullanıcı Arayüzü) kısmında, hızlı geliştirme için hazır bir template kullanılmıştır. Eğitim amacıyla geliştirilmiş olan bu proje, gerçek bir uygulama için temel oluşturmayı hedefler ve bu nedenle içerisinde eksik veya tamamlanmamış bölümler bulunabilir.
 
-## Proje Amacı:
+### Proje Amacı:
 Bu proje, .NET Core ve Dapper kullanarak bir emlak uygulaması oluşturma süreçlerini öğrenmek ve RESTful API geliştirme deneyimi kazandırmak amacıyla hazırlanmıştır. Hazır template kullanımı, proje sürecini hızlandırırken temel mimarinin daha iyi anlaşılmasını sağlamıştır. Eğitim projesi kapsamında olduğu için gerçek dünya projelerinde ihtiyaç duyulan tüm özellikleri içermemektedir ancak iyi bir başlangıç noktası sunar.
 
 # Projenin Genel Özellikleri:
-## API Tabanlı Veri Akışı:
+### API Tabanlı Veri Akışı:
 
 Tüm veri işlemleri, API uç noktaları üzerinden gerçekleştirilmiştir.
 Front-end, API’den dinamik olarak veri çekerek kullanıcılara sunar.
@@ -33,16 +33,16 @@ Daha karmaşık özelliklerin temel prensiplerini anlamak için sade ve anlaşı
 
 # Teknik Detaylar:
 
-## Backend:
+### Backend:
 - Framework: .NET Core
 - ORM: Dapper
 - Veritabanı: SQL Server
   
-## API:
+### API:
 - RESTful mimari kullanılmıştır.
 - Veri akışı JSON formatında sağlanmıştır.
   
-## Frontend:
+### Frontend:
 - UI geliştirmede hazır bir HTML ve CSS template kullanılmıştır.
 - Temel stil ve görsel düzenleme işlemleri gerçekleştirilmiştir.
   
